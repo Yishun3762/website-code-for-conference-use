@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Asagi的后宫</title>
+    <style>
+        #change-bgpic {
+            padding: 12px 24px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            background-color: transparent;
+            color: #4A90E2;
+            border: 2px solid #4A90E2;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            top: 300px;
+            left:300px;
+}
+
+        #change-bgpic:hover {
+                background-color: rgba(74, 144, 226, 0.1);
+                transform: scale(1.05);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('屏幕截图 2024-09-27 202032.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9); 
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 auto;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bio {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .bio h2 {
+            font-size: 24px;
+            color: #4A90E2;
+        }
+
+        .bio p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .nav {
+            margin-top: 30px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav li {
+            margin-bottom: 15px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            display: block;
+            padding: 10px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .content {
+            margin-left: 270px; 
+            padding: 40px;
+        }
+
+        h1 {
+            color: #4A90E2;
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile-pic" style="background-image: url('屏幕截图 2024-10-04 223712.png')"></div>
+
+        <div class="bio">
+            <h2>AsagiYuumoya</h2>
+            <p>人活着就是为了二次元！</p>
+        </div>
+
+        <ul class="nav">
+            <li><a href="#home">主页</a></li>
+            <li><a href="https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click">关于</a></li>
+            <li><a href="https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click">文章</a></li>
+            <li><a href="https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click">站主女装照</a></li>                              
+            <li><a href="https://ys.mihoyo.com/?utm_source=backup53&from_channel=backup53&msclkid=e8f7ba16ca881fde433adce935eef2f3#/">点我看小猫娘喵~</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Ciallo～(∠・ω< )⌒★</h1>
+        <p>欢迎你喵~这里已经好久没人来过了喵~咱喵好寂寞喵~</p>
+        <div>"这里除了小猫娘什么都没有喵"</div>
+        <h3>点左边的按钮看小猫娘喵~</h3>
+        <p>背景图很好看对吧喵，我也觉得喵，伊莉雅和美游真是太可爱了喵</p>
+        <button id="change-bgpic">不好看，我就要换一张</button>
+    </div>
+</body>
+<script>
+    const images = [
+        '屏幕截图 2024-09-27 202032.png',
+        '微信图片_20241121130628.jpg',
+        '微信图片_20241121130650.jpg',
+        '微信图片_20241121130651.jpg',
+    ];
+    let currentIndex = 0;
+    let Count = 0;
+    let additional = Math.floor(Math.random() * 7) + 1;
+
+    document.getElementById('change-bgpic').addEventListener('click', function() {
+        Count++;
+        if (Count <= 3) {
+            if (Count ===1){
+                alert('真的不好看吗喵~真的忍心把我换掉吗喵~');
+            } else if (Count === 2) {
+                alert('生气了喵，咱喵真的要走了喵~');
+            } else {
+                alert('再点我就真的走了喵~');
+            }
+        } else if (Count > 3 && Count <= 3 + additional) {
+            alert('嘿嘿，咱喵还舍不得走喵~');
+        } else {
+            alert('哼，咱喵去找主人AsagiYuumoya了喵~');
+            currentIndex = (currentIndex + 1) % images.length;
+            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+        }
+    });
+</script>
+</html>

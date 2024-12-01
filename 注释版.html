@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Asagi的后宫</title>
+    <style>
+        #change-bgpic {
+    /* 设置按钮的内边距 */
+    padding: 12px 24px;
+    /* 将按钮文本转换为大写 */
+    text-transform: uppercase;
+    /* 设置按钮文本的字母间距 */
+    letter-spacing: 3px;
+    /* 设置按钮文本的字体大小 */
+    font-size: 14px;
+    /* 设置按钮的圆角半径 */
+    border-radius: 10px;
+    /* 设置按钮的外边距 */
+    margin: 20px auto;
+    /* 将按钮显示为块级元素 */
+    display: block;
+    /* 设置按钮的背景颜色为透明 */
+    background-color: transparent;
+    /* 设置按钮文本的颜色 */
+    color: #4A90E2;
+    /* 设置按钮的边框，solid是实线 */
+    border: 2px solid #4A90E2;
+    /* 设置按钮的鼠标指针样式 */
+    cursor: pointer;
+    /* 设置按钮背景颜色和变换的过渡效果 ease为缓动，持续时间是0.3s*/
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* 设置按钮的绝对定位 */
+    position: absolute;
+    /* 设置按钮距离顶部的距离 */
+    top: 300px;
+    /* 设置按钮距离左侧的距离 */
+    left: 300px;
+}
+
+        #change-bgpic:hover {
+    /* 当鼠标悬停在按钮上时，背景颜色变为半透明的蓝色 */
+    background-color: rgba(74, 144, 226, 0.1);
+    /* 当鼠标悬停在按钮上时，按钮稍微放大 */
+    transform: scale(1.05);
+}
+body {
+    /* 移除 body 元素的默认外边距 */
+    margin: 0;
+    /* 移除 body 元素的默认内边距 */
+    padding: 0;
+    /* 设置 body 元素的背景图片，居中对齐并固定 */
+    background: url('屏幕截图 2024-09-27 202032.png') no-repeat center center fixed;
+    /* 设置背景图片的大小为覆盖整个屏幕 */
+    background-size: cover;
+    /* 设置 body 元素的文本颜色 */
+    color: #333;
+}
+.sidebar {
+    /* 设置侧边栏的宽度 */
+    width: 250px;
+    /* 将侧边栏固定在页面的左侧 */
+    position: fixed;
+    /* 将侧边栏固定在页面的顶部 */
+    left: 0;
+    top: 0;
+    /* 设置侧边栏的高度为 100% */
+    height: 100%;
+    /* 设置侧边栏的背景颜色为半透明的白色 */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* 设置侧边栏的阴影效果 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    /* 设置侧边栏的内边距 */
+    padding: 20px;
+}
+
+.profile-pic {
+    /* 设置头像的宽度 */
+    width: 150px;
+    /* 设置头像的高度 */
+    height: 150px;
+    /* 设置头像的背景颜色 */
+    background-color: #ddd;
+    /* 设置头像的圆角半径，使其成为圆形 */
+    border-radius: 50%;
+    /* 将头像居中对齐 */
+    margin: 0 auto;
+    /* 设置头像背景图片的大小为覆盖 */
+    background-size: cover;
+    /* 设置头像背景图片的位置为居中 */
+    background-position: center;
+}
+
+.bio {
+    /* 设置个人简介的文本居中对齐 */
+    text-align: center;
+    /* 设置个人简介的外边距 */
+    margin: 20px 0;
+}
+
+.bio h2 {
+    /* 设置个人简介标题的字体大小 */
+    font-size: 24px;
+    /* 设置个人简介标题的颜色 */
+    color: #4A90E2;
+}
+
+.bio p {
+    /* 设置个人简介段落的字体大小 */
+    font-size: 14px;
+    /* 设置个人简介段落的颜色 */
+    color: #555;
+}
+
+.nav {
+    /* 设置导航栏的顶部外边距 */
+    margin-top: 30px;
+    /* 移除导航栏的默认列表样式 */
+    list-style-type: none;
+    /* 移除导航栏的内边距 */
+    padding: 0;
+}
+
+.nav li {
+    /* 设置导航栏列表项的底部外边距 */
+    margin-bottom: 15px;
+}
+
+.nav a {
+    /* 移除导航链接的默认下划线 */
+    text-decoration: none;
+    /* 设置导航链接的字体大小 */
+    font-size: 18px;
+    /* 设置导航链接的颜色 */
+    color: #333;
+    /* 将导航链接显示为块级元素 */
+    display: block;
+    /* 设置导航链接的内边距 */
+    padding: 10px;
+    /* 设置导航链接的圆角半径 */
+    border-radius: 10px;
+    /* 设置导航链接背景颜色的过渡效果 */
+    transition: background-color 0.3s;
+}
+
+.nav a:hover {
+    /* 当鼠标悬停在导航链接上时，背景颜色变为浅灰色 */
+    background-color: #f0f0f0;
+}
+
+.content {
+    /* 设置内容区域距离左侧边栏的距离 */
+    margin-left: 270px;
+    /* 设置内容区域的内边距 */
+    padding: 40px;
+}
+
+h1 {
+    /* 设置一级标题的颜色 */
+    color: #4A90E2;
+    /* 设置一级标题的字体大小 */
+    font-size: 36px;
+}
+
+p {
+    /* 设置段落的字体大小 */
+    font-size: 18px;
+    /* 设置段落的行高 */
+    line-height: 1.6;
+    /* 设置段落的上下外边距 */
+    margin: 20px 0;
+}
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="profile-pic" style="background-image: url('屏幕截图 2024-10-04 223712.png')"></div>
+
+    <div class="bio">
+        <h2>AsagiYuumoya</h2>
+        <p>人活着就是为了二次元！</p>
+    </div>
+
+    <ul class="nav">
+        <li><a href="#home">主页</a></li>
+        <li><a href="https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click">关于</a></li>
+        <li><a href="https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click">文章</a></li>
+        <li><a href="https://www.bilibili.com/video/BV1GJ411x7h7/?spm_id_from=333.337.search-card.all.click">站主女装照</a></li>
+        <li><a href="https://ys.mihoyo.com/?utm_source=backup53&from_channel=backup53&msclkid=e8f7ba16ca881fde433adce935eef2f3#/">点我看小猫娘喵~</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Ciallo～(∠・ω< )⌒★</h1>
+    <p>欢迎你喵~这里已经好久没人来过了喵~咱喵好寂寞喵~</p>
+    <div>"这里除了小猫娘什么都没有喵"</div>
+    <h3>点左边的按钮看小猫娘喵~</h3>
+    <p>背景图很好看对吧喵，我也觉得喵，伊莉雅和美游真是太可爱了喵</p>
+    <button id="change-bgpic">不好看，我就要换一张</button>
+</div>
+</body>
+<script>
+    // 定义一个数组，存储背景图片的路径
+    const images = [
+        '屏幕截图 2024-09-27 202032.png',
+        '微信图片_20241121130628.jpg',
+        '微信图片_20241121130650.jpg',
+        '微信图片_20241121130651.jpg',
+    ];
+    // 定义一个变量，用于记录当前显示的背景图片的索引
+    let currentIndex = 0;
+    // 定义一个变量，用于记录点击按钮的次数
+    let Count = 0;
+    // 定义一个变量，用于记录随机生成的额外点击次数
+    let additional = Math.floor(Math.random() * 7) + 1;
+
+    // 为按钮添加点击事件
+    document.getElementById('change-bgpic').addEventListener('click', function() {
+        // 每点击一次按钮，Count加1
+        Count++;
+        // 如果Count小于等于3，则弹出相应的提示框
+        if (Count <= 3) {
+            if (Count ===1){
+                alert('真的不好看吗喵~真的忍心把我换掉吗喵~');
+            } else if (Count === 2) {
+                alert('生气了喵，咱喵真的要走了喵~');
+            } else {
+                alert('再点我就真的走了喵~');
+            }
+        // 如果Count大于3且小于等于3+additional，则弹出相应的提示框
+        } else if (Count > 3 && Count <= 3 + additional) {
+            alert('嘿嘿，咱喵还舍不得走喵~');
+        // 如果Count大于3+additional，则弹出相应的提示框，并切换背景图片
+        } else {
+            alert('哼，咱喵去找主人AsagiYuumoya了喵~');
+            // 将currentIndex加1，并取模images.length，确保currentIndex在0到images.length-1之间
+            currentIndex = (currentIndex + 1) % images.length;
+            // 将body的背景图片设置为当前索引对应的图片
+            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+        }
+    });
+</script>
+</html>
