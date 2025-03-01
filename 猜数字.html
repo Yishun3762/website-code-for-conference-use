@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>猜数字游戏</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f0f0f0;
+    }
+    #game-container {
+      background-color: white;
+      width: 80%;
+      max-width: 5000px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      padding: 8px;
+      margin: 10px;
+      width: 100px;
+    }
+    button {
+      padding: 8px 20px;
+      background-color: #8dc8f1;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #049ab7;
+    }
+    #message {
+      margin: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      min-height: 24px;
+    }
+    #attempts {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+<div id="game-container">
+  <h1>猜数字游戏</h1>
+  <p>我已经想好了一个1到100之间的数字。你能猜出来吗？</p>
+  <p>你最多又5次机会。Enjoy~</p>
+
+  <div>
+    <input type="number" id="guess" min="1" max="100" placeholder="输入数字">
+    <button onclick="checkGuess()">开猜！</button>
+  </div>
+
+  <div id="message"></div>
+  <div id="attempts">尝试次数: 0</div>
+
+  <button onclick="resetGame()" id="reset-button" style="display: none;">再玩一次</button>
+</div>
+
+<script>
+  // 游戏变量
+  let CorrectNum = 0;
+  let attempts = 5;
+  let gameOver = false;
+// 初始化
+  function initGame() {
+    // 随机数
+    CorrectNum = Math.floor(Math.random() * 100) + 1;
+    attempts = 5;
+    gameOver = false;
+    updateAttempts();
+    // 清空消息框
+    document.getElementById('message').textContent = '';
+    // 隐藏重置按钮
+    document.getElementById('reset-button').style.display = 'none';
+  }
+  function updateAttempts() {
+    document.getElementById('attempts').textContent = '尝试次数还有: ' + attempts+' 次';
+  }
+  // 检查玩家猜测
+  function checkGuess() {
+    if (gameOver) return;
+
+    let guessInput = document.getElementById('guess');
+    let guess = parseInt(guessInput.value);// 把输入转换为数字
+
+    // 意外输入处理
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+      document.getElementById('message').textContent = '不是哥们，要不要看看你输了个啥进来？';
+      document.getElementById('message').style.color = 'red';
+      return;
+    }
+    attempts--;
+    updateAttempts();
+    // 检查结果
+    if (attempts <= 0) {
+      document.getElementById('message').textContent = '唉唉铸币，这都猜不对。答案是' + CorrectNum + '啦！杂鱼~';
+      document.getElementById('message').style.color = 'red';
+      gameOver = true;
+      document.getElementById('reset-button').style.display = 'inline-block';
+    } else if (guess < CorrectNum) {
+      document.getElementById('message').textContent = '太小了！再试一次。';
+      document.getElementById('message').style.color = 'blue';
+    } else if (guess > CorrectNum) {
+      document.getElementById('message').textContent = '太大了！再试一次。';
+      document.getElementById('message').style.color = 'purple';
+    } else if (guess === CorrectNum) {
+      document.getElementById('message').textContent = '恭喜你！你猜对了！';
+      document.getElementById('message').style.color = 'green';
+      gameOver = true;
+      document.getElementById('reset-button').style.display = 'inline-block';
+    }
+
+    // 清空输入框
+    guessInput.value = '';
+    guessInput.focus();
+  }
+
+  // 重置游戏
+  function resetGame() {
+    initGame();}
+  // 初始化
+  initGame();
+</script>
+</body>
+</html>
